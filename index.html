@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nukphanny Vathana · Web Developer & IT Support</title>
+  <meta name="description" content="Nukphanny Vathana is a web developer and MIS student at SETEC Institute in Phnom Penh, Cambodia, building responsive, accessible web applications." />
+  <meta name="theme-color" content="#07080a" />
+  <meta property="og:title" content="Nukphanny Vathana · Web Developer & IT Support" />
+  <meta property="og:description" content="Web Developer · MIS at SETEC Institute · Phnom Penh, Cambodia." />
+  <meta property="og:image" content="assets/images/Pro.JPG" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='800' font-size='28' fill='%23c8ff2e'%3ENV%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ INTRO LOADER ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__top">
+      <span class="mono">Production transmission</span>
+      <button class="loader__skip mono" id="loader-skip" type="button" tabindex="-1">Skip intro →</button>
+    </div>
+    <div class="loader__center">
+      <p class="loader__meta mono">Welcome. I'm</p>
+      <h2 class="loader__name" data-split>Nukphanny Vathana</h2>
+      <p class="loader__meta loader__sub">An MIS student at SETEC Institute, passionate about building responsive web applications.</p>
+    </div>
+    <div class="loader__bottom">
+      <div class="loader__bar"><span id="loader-bar"></span></div>
+      <div class="loader__count"><span id="loader-count">0</span><sup>%</sup></div>
+    </div>
+  </div>
+  <div class="curtain" id="curtain" aria-hidden="true"></div>
+
+  <!-- ============ GLOBAL UI ============ -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label" id="cursor-label"></span></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo magnetic" aria-label="Back to top">
+      <span class="nav__logo-mark">NV</span>
+      <span class="nav__logo-text">Vathana</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work" data-nav="work"><span>01</span>Work</a>
+      <a href="#skills" data-nav="skills"><span>02</span>Skills</a>
+      <a href="#about" data-nav="about"><span>03</span>About</a>
+      <a href="#people" data-nav="people"><span>04</span>References</a>
+      <a href="#contact" data-nav="contact"><span>05</span>Contact</a>
+    </nav>
+    <a class="nav__cv btn btn--ghost magnetic" href="assets/docs/CV.pdf" download>CV.PDF ↓</a>
+    <button class="nav__toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="#work"><span class="mono">01</span>Work</a>
+      <a href="#skills"><span class="mono">02</span>Skills</a>
+      <a href="#about"><span class="mono">03</span>About</a>
+      <a href="#people"><span class="mono">04</span>References</a>
+      <a href="#contact"><span class="mono">05</span>Contact</a>
+    </nav>
+    <div class="menu__foot mono">
+      <a href="mailto:nukphannyvathana@gmail.com">nukphannyvathana@gmail.com</a>
+      <a href="assets/docs/CV.pdf" download>Download CV ↓</a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero" data-section="hero">
+      <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--a" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--b" aria-hidden="true"></div>
+
+      <div class="hero__inner container">
+        <div class="hero__top" data-hero="fade">
+          <p class="hero__eyebrow mono"><span class="dot"></span> Portfolio · MIS at SETEC Institute · Phnom Penh</p>
+          <p class="hero__status mono"><span class="pulse"></span> Seeking Junior Role or Web Developer Internship · 2026</p>
+        </div>
+
+        <h1 class="hero__title">
+          <span class="line-mask"><span class="hero__line" data-split>Nukphanny</span></span>
+          <span class="line-mask"><span class="hero__line hero__line--outline" data-split>Vathana.</span></span>
+        </h1>
+
+        <div class="hero__row">
+          <p class="hero__role" data-hero="fade">
+            <span class="mono hero__role-label">Currently —</span>
+            <span class="hero__role-text" id="role-text">Web Developer & IT Support</span>
+          </p>
+          <p class="hero__lead" data-hero="fade">
+            A detail-oriented Web Developer and MIS undergraduate at SETEC Institute, seeking opportunities in web development, IT support, volunteer work, and internships. I bring a practical approach to building responsive, accessible applications and providing reliable technical support.
+          </p>
+        </div>
+
+        <div class="hero__actions" data-hero="fade">
+          <a href="#work" class="btn btn--primary magnetic"><span>Explore Selected Work</span><i>→</i></a>
+          <a href="assets/docs/CV.pdf" class="btn btn--ghost magnetic" download><span>Download CV (.PDF)</span><i>↓</i></a>
+          <a href="#contact" class="btn btn--link"><span>Direct Inquiries</span></a>
+        </div>
+
+        <ul class="hero__meta" data-hero="meta">
+          <li><span class="mono">Academic alignment</span><span>SETEC Institute · Management Information Systems</span></li>
+          <li><span class="mono">Direct channels</span><span><a href="mailto:nukphannyvathana@gmail.com">nukphannyvathana@gmail.com</a> · <a href="tel:+85595627443">095 627 443</a></span></li>
+          <li><span class="mono">Location</span><span>Sangkat Boeung Prolit, Khan Prampi Makara, Phnom Penh</span></li>
+        </ul>
+      </div>
+
+      <a href="#work" class="hero__scroll" aria-label="Scroll to selected work" data-hero="fade">
+        <svg viewBox="0 0 200 200" class="hero__scroll-ring" aria-hidden="true">
+          <defs><path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+          <text><textPath href="#ring">SCROLL TO EXPLORE · CHAPTERS 01—05 · SCROLL TO EXPLORE · </textPath></text>
+        </svg>
+        <span class="hero__scroll-arrow">↓</span>
+      </a>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__row" data-dir="-1">
+        <div class="marquee__track">
+          <span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>JavaScript</span><i>✦</i><span>React.js</span><i>✦</i><span>Vue.js</span><i>✦</i><span>FastAPI</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>C#</span><i>✦</i><span>C++</span><i>✦</i>
+        </div>
+      </div>
+      <div class="marquee__row marquee__row--alt" data-dir="1">
+        <div class="marquee__track">
+          <span>Systems Analysis</span><i>●</i><span>Database Design</span><i>●</i><span>Brand Identity</span><i>●</i><span>Web Security</span><i>●</i><span>Accessibility</span><i>●</i><span>IT Support</span><i>●</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 01 WORK ============ -->
+    <section class="work" id="work" data-section="work">
+      <div class="work__hud mono" aria-hidden="true">
+        <span>01 / Selected Work</span>
+        <span class="work__hud-bar"><span id="work-progress"></span></span>
+        <span><span id="work-index">01</span> / 03</span>
+      </div>
+
+      <div class="work__track" id="work-track">
+        <!-- intro panel -->
+        <div class="work__panel work__panel--intro">
+          <div class="work__intro">
+            <p class="chapter mono">Chapter 01 — Selected Work</p>
+            <h2 class="display" data-split-reveal>Engineered to withstand scrutiny.</h2>
+            <p class="work__intro-text" data-reveal>
+              Flagship software, digital systems, and visual communication demonstrating responsive ergonomics, frontend craftsmanship, and database integrity.
+            </p>
+            <p class="work__hint mono" data-reveal>Keep scrolling <span>→</span></p>
+          </div>
+        </div>
+
+        <!-- project 1 -->
+        <article class="work__panel">
+          <div class="project">
+            <a class="project__media" href="https://nukphannyvathana.github.io/My_Digital_CV002/" target="_blank" rel="noopener" data-cursor="Visit">
+              <div class="project__img-wrap">
+                <img src="assets/images/DGP.png" alt="Digital CV Portfolio interactive web application" loading="lazy" width="1899" height="935" />
+              </div>
+              <span class="project__caption mono">Digital CV · Interactive web architecture</span>
+            </a>
+            <div class="project__body">
+              <p class="project__num mono">Case study 01</p>
+              <h3 class="project__title">Digital CV Portfolio</h3>
+              <p class="project__sub">Interactive Web Architecture & Frontend Engineering</p>
+              <p class="project__desc">An interactive digital CV application featuring fluid kinetic animations, custom theme transitions, zero external framework overhead, and client-side PDF document generation.</p>
+              <ul class="tags">
+                <li>HTML5 Semantic</li><li>Vanilla CSS3</li><li>JavaScript (ES6+)</li><li>Responsive Grid</li><li>PDF Generation</li>
+              </ul>
+              <dl class="project__stats">
+                <div><dt>100%</dt><dd>Vanilla web standards</dd></div>
+                <div><dt>&lt;1s</dt><dd>First meaningful paint</dd></div>
+              </dl>
+              <a class="btn btn--primary magnetic" href="https://nukphannyvathana.github.io/My_Digital_CV002/" target="_blank" rel="noopener"><span>Visit Live System</span><i>↗</i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- project 2 -->
+        <article class="work__panel">
+          <div class="project">
+            <a class="project__media" href="https://nukphannyvathana.github.io/My-Ecommerce-Final-at-Aditi/" target="_blank" rel="noopener" data-cursor="Visit">
+              <div class="project__img-wrap">
+                <img src="assets/images/Ros-Ek.png" alt="Ros Ek Restaurant e-commerce website" loading="lazy" width="1910" height="821" />
+              </div>
+              <span class="project__caption mono">Ros Ek Restaurant · E-commerce experience</span>
+            </a>
+            <div class="project__body">
+              <p class="project__num mono">Case study 02</p>
+              <h3 class="project__title">Ros Ek Restaurant</h3>
+              <p class="project__sub">Restaurant E-commerce & Full-Stack Development</p>
+              <p class="project__desc">A full-stack restaurant experience built with Vue.js, FastAPI, SQLite, and JWT authentication for browsing Khmer cuisine, placing orders, and accessing customer accounts.</p>
+              <ul class="tags">
+                <li>Vue.js</li><li>FastAPI</li><li>SQLite</li><li>JWT Authentication</li><li>Menu & Ordering</li>
+              </ul>
+              <dl class="project__stats">
+                <div><dt>Menu</dt><dd>Browse dishes clearly</dd></div>
+                <div><dt>Order</dt><dd>Direct ordering flow</dd></div>
+              </dl>
+              <a class="btn btn--primary magnetic" href="https://nukphannyvathana.github.io/My-Ecommerce-Final-at-Aditi/" target="_blank" rel="noopener"><span>Visit Live System</span><i>↗</i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- project 3 -->
+        <article class="work__panel">
+          <div class="project">
+            <div class="project__media project__media--tall" data-cursor="Design">
+              <div class="project__img-wrap">
+                <img src="assets/images/Portfolio-Design.png" alt="Graphic design portfolio and creative branding suite" loading="lazy" width="518" height="587" />
+              </div>
+              <span class="project__caption mono">Branding · Creative asset suite</span>
+            </div>
+            <div class="project__body">
+              <p class="project__num mono">Case study 03</p>
+              <h3 class="project__title">Creative Brand Suite</h3>
+              <p class="project__sub">Visual Design, Adobe Creative Suite & Identity Systems</p>
+              <p class="project__desc">Cohesive visual identities, marketing collateral, social media campaign assets, and educational publications using Adobe Photoshop, Illustrator, and typography principles for community initiatives.</p>
+              <ul class="tags">
+                <li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Brand Identity</li><li>Vector Systems</li><li>Print & Digital</li>
+              </ul>
+              <dl class="project__stats">
+                <div><dt>Multi</dt><dd>Format print & digital coherence</dd></div>
+                <div><dt>High</dt><dd>Polish community brand assets</dd></div>
+              </dl>
+              <a class="btn btn--ghost magnetic" href="#contact"><span>Ask about this project</span><i>→</i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- outro panel -->
+        <div class="work__panel work__panel--outro">
+          <a class="work__outro" href="https://github.com/nukphannyvathana" target="_blank" rel="noopener" data-cursor="Open">
+            <span class="mono">More code on</span>
+            <span class="work__outro-big">GitHub<i>↗</i></span>
+            <span class="mono">github.com/nukphannyvathana</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 SKILLS ============ -->
+    <section class="skills section" id="skills" data-section="skills">
+      <div class="container">
+        <header class="section__head">
+          <p class="chapter mono">Chapter 02 — Craft & Technical Competencies</p>
+          <h2 class="display" data-split-reveal>Disciplines honed through rigorous study.</h2>
+          <p class="section__lead" data-reveal>A concrete breakdown of engineering and information system capabilities applied to production web software.</p>
+        </header>
+
+        <div class="skills__grid">
+          <article class="skill">
+            <span class="skill__num mono">01</span>
+            <h3>Web Development & Frontend Architecture</h3>
+            <p>Engineering responsive, semantic layouts with modern JavaScript (ES6+), React, and vanilla CSS3 to deliver fast, accessible user interfaces.</p>
+            <ul class="tags tags--sm"><li>HTML5</li><li>CSS3 Grid & Flexbox</li><li>JavaScript ES6+</li><li>React.js</li><li>Vue.js</li><li>FastAPI</li><li>PostgreSQL</li><li>C++</li><li>C#</li><li>Responsive UI/UX</li></ul>
+          </article>
+          <article class="skill">
+            <span class="skill__num mono">02</span>
+            <h3>Management Information Systems</h3>
+            <p>Systems analysis, relational database design (SQL), data normalization, schema modeling, and enterprise software lifecycle management from SETEC Institute.</p>
+            <ul class="tags tags--sm"><li>SQL Databases</li><li>Systems Analysis & Design</li><li>Data Modeling</li><li>RESTful API Design</li><li>Enterprise Workflows</li></ul>
+          </article>
+          <article class="skill">
+            <span class="skill__num mono">03</span>
+            <h3>Creative Graphic Design & Brand Identity</h3>
+            <p>Creating memorable marketing collateral, brand guidelines, typography hierarchies, and vector assets using Adobe Creative Suite.</p>
+            <ul class="tags tags--sm"><li>Photoshop</li><li>Illustrator</li><li>Brand Identity</li><li>Typography</li><li>Vector Illustration</li></ul>
+          </article>
+          <article class="skill">
+            <span class="skill__num mono">04</span>
+            <h3>Cybersecurity Analysis (Salacyber)</h3>
+            <p>Secure coding principles, network protocol inspection, access control authentication, and web application vulnerability awareness.</p>
+            <ul class="tags tags--sm"><li>Salacyber Certified</li><li>Web App Security</li><li>Malware Analysis</li><li>Access Control & Auth</li><li>Network Fundamentals</li></ul>
+          </article>
+          <article class="skill">
+            <span class="skill__num mono">05</span>
+            <h3>Accessibility, Ergonomics & QA</h3>
+            <p>Universal accessibility (WCAG 2.2), keyboard traversability, responsive mobile ergonomics, and comprehensive cross-browser testing.</p>
+            <ul class="tags tags--sm"><li>WCAG 2.2</li><li>Semantic HTML5</li><li>Focus Management</li><li>Cross-Browser Testing</li><li>Clean Git Workflow</li></ul>
+          </article>
+          <article class="skill">
+            <span class="skill__num mono">06</span>
+            <h3>Languages & Communication</h3>
+            <p>Native Khmer communication with intermediate English for technical learning, documentation, and professional collaboration.</p>
+            <ul class="tags tags--sm"><li>Khmer · Native</li><li>English · Intermediate</li><li>Technical Documentation</li><li>Team Communication</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 ABOUT ============ -->
+    <section class="about section" id="about" data-section="about">
+      <div class="container">
+        <p class="chapter mono">Chapter 03 — About Nukphanny Vathana</p>
+
+        <div class="about__grid">
+          <figure class="about__portrait" data-cursor="Hello">
+            <div class="about__img-wrap">
+              <img src="assets/images/Pro.JPG" alt="Portrait of Nukphanny Vathana" loading="lazy" width="735" height="945" />
+            </div>
+            <figcaption class="mono">Nukphanny Vathana · SETEC · 2024</figcaption>
+            <span class="about__badge" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><defs><path id="badge" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0" /></defs><text><textPath href="#badge">OPEN TO WORK · OPEN TO WORK · OPEN TO WORK · </textPath></text></svg>
+              <b>✦</b>
+            </span>
+          </figure>
+
+          <div class="about__copy">
+            <h2 class="about__statement" data-scrub-words>Detail-oriented web developer driven by systems discipline and continuous learning.</h2>
+            <p data-reveal>I am Nukphanny Vathana, a web developer and undergraduate student pursuing a Bachelor's Degree in Management Information Systems (MIS) at the SETEC Institute in Phnom Penh, Cambodia.</p>
+            <p data-reveal>My journey combines formal training in information systems and database architecture with hands-on web application development at Aditi Academy and cybersecurity fundamentals at Salacyber. I thrive on translating intricate problems into clean, accessible, and responsive user experiences, constantly seeking to absorb industry best practices alongside seasoned engineering teams.</p>
+
+            <ol class="principles">
+              <li data-reveal><span class="mono">I.</span><div><strong>Precision over clutter</strong>Code should communicate intent with mathematical clarity.</div></li>
+              <li data-reveal><span class="mono">II.</span><div><strong>Reliability as a foundation</strong>Solid database structures and zero-jank frontend execution.</div></li>
+              <li data-reveal><span class="mono">III.</span><div><strong>Perpetual learning</strong>Embracing feedback, curiosity, and rapid technical adaptation.</div></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="timelines">
+          <div class="timeline">
+            <h3 class="timeline__title mono">Academic foundation & training</h3>
+            <div class="timeline__line" aria-hidden="true"><span></span></div>
+            <ol>
+              <li class="timeline__item">
+                <span class="timeline__date mono">2024 — Present · Undergraduate</span>
+                <h4>Bachelor of Management Information Systems (MIS)</h4>
+                <p class="timeline__org">SETEC Institute · Phnom Penh</p>
+                <p>Focus on enterprise systems analysis, database design, software project methodologies, and technical management.</p>
+              </li>
+              <li class="timeline__item">
+                <span class="timeline__date mono">2025 — Present · Professional training</span>
+                <h4>Web Application Development</h4>
+                <p class="timeline__org">Aditi Academy</p>
+                <p>Comprehensive curriculum covering modern frontend engineering, responsive web design, DOM manipulation, and dynamic state.</p>
+              </li>
+              <li class="timeline__item">
+                <span class="timeline__date mono">2025 · Security certification</span>
+                <h4>Cyber Security Foundations</h4>
+                <p class="timeline__org">Salacyber</p>
+                <p>Practical coursework covering vulnerability assessments, defensive practices, network architecture, and application hygiene.</p>
+              </li>
+              <li class="timeline__item">
+                <span class="timeline__date mono">2019 — 2024 · Secondary education</span>
+                <h4>High School Bachelor Diploma</h4>
+                <p class="timeline__org">Sok An Mouyouksaphea High School · Takeo Province</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="timeline">
+            <h3 class="timeline__title mono">Leadership & community engagement</h3>
+            <div class="timeline__line" aria-hidden="true"><span></span></div>
+            <ol>
+              <li class="timeline__item">
+                <span class="timeline__date mono">2019 — 2024 · Community development</span>
+                <h4>Union Youth Federation of Cambodia (UYFC)</h4>
+                <p class="timeline__org">Sok An Mouyouksaphea High School · Takeo Province</p>
+                <p>Assessed school and student needs through direct communication with educators and community leaders to prioritize impactful educational programs.</p>
+              </li>
+              <li class="timeline__item">
+                <span class="timeline__date mono">2025 · Sports logistics</span>
+                <h4>National Soccer League Volunteer</h4>
+                <p class="timeline__org">Phnom Penh City</p>
+                <p>Coordinated event logistics and team support during national championship matches, demonstrating composure and collaborative execution.</p>
+              </li>
+              <li class="timeline__item">
+                <span class="timeline__date mono">2025 · Social initiative</span>
+                <h4>Walk for Peace Volunteer</h4>
+                <p class="timeline__org">Phnom Penh City</p>
+                <p>Demonstrated adaptability, crowd coordination, and problem-solving in a fast-paced environment supporting national social cohesion initiatives.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 REFERENCES ============ -->
+    <section class="people section" id="people" data-section="people">
+      <div class="container">
+        <header class="section__head">
+          <p class="chapter mono">Chapter 04 — References & Endorsements</p>
+          <h2 class="display" data-split-reveal>References.</h2>
+          <p class="section__lead" data-reveal>Direct mentors and leaders who can attest to my character, technical curiosity, work ethic, and dedication to excellence.</p>
+        </header>
+        <div class="people__grid">
+          <article class="ref">
+            <span class="ref__avatar" aria-hidden="true">MC</span>
+            <div>
+              <h3>Meas Chanthavy</h3>
+              <p>Fisheries Administration · Cambodia</p>
+            </div>
+            <a class="ref__phone mono" href="tel:010997038">010 997 038</a>
+          </article>
+          <article class="ref">
+            <span class="ref__avatar" aria-hidden="true">MS</span>
+            <div>
+              <h3>Mark Sokkea</h3>
+              <p>Educator · Sok An Mouyouksaphea High School</p>
+            </div>
+            <a class="ref__phone mono" href="tel:087223678">087 223 678</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 CONTACT ============ -->
+    <section class="contact section" id="contact" data-section="contact">
+      <div class="contact__ticker" aria-hidden="true">
+        <span id="contact-ticker">Let's build something that feels inevitable ✦ Let's build something that feels inevitable ✦</span>
+      </div>
+
+      <div class="container contact__grid">
+        <div class="contact__info">
+          <p class="chapter mono">Chapter 05 — Initiate Dialogue</p>
+          <h2 class="display" data-split-reveal>Let's talk.</h2>
+          <p data-reveal>Available for junior web developer roles, software engineering internships, and collaborative web commissions. Send a direct message.</p>
+          <p class="contact__status" data-reveal><span class="pulse"></span>Currently open for junior web developer positions, frontend internships, and software development opportunities in Phnom Penh or global remote teams.</p>
+
+          <ul class="contact__list">
+            <li data-reveal><span class="mono">Direct email</span><a href="mailto:nukphannyvathana@gmail.com" class="hover-line">nukphannyvathana@gmail.com</a></li>
+            <li data-reveal><span class="mono">Telephone / Telegram</span><a href="tel:+85595627443" class="hover-line">095 627 443 (+855 95 627 443)</a></li>
+            <li data-reveal><span class="mono">Code repositories</span><a href="https://github.com/nukphannyvathana" target="_blank" rel="noopener" class="hover-line">github.com/nukphannyvathana</a></li>
+            <li data-reveal><span class="mono">Base location</span>Sangkat Boeung Prolit, Khan Prampi Makara, Phnom Penh</li>
+          </ul>
+        </div>
+
+        <form class="form" id="contact-form" novalidate data-reveal>
+          <div class="field">
+            <input id="f-name" name="name" type="text" placeholder=" " required autocomplete="name" />
+            <label for="f-name">Your name</label>
+          </div>
+          <div class="field">
+            <input id="f-email" name="email" type="email" placeholder=" " required autocomplete="email" />
+            <label for="f-email">Your email</label>
+          </div>
+          <div class="field field--select">
+            <select id="f-type" name="type" required>
+              <option>Junior Web Developer Position</option>
+              <option>Software Engineering Internship</option>
+              <option>Web Application Commission</option>
+              <option>UI/UX & Graphic Design Project</option>
+              <option>IT Support</option>
+              <option>General Professional Dialogue</option>
+            </select>
+            <label for="f-type" class="is-static">Opportunity / inquiry type</label>
+          </div>
+          <div class="field">
+            <textarea id="f-msg" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="f-msg">Message brief</label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block magnetic"><span>Transmit Message</span><i>→</i></button>
+          <p class="form__status mono" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <p class="footer__quote">Let's make something that feels <em>inevitable.</em></p>
+        <div class="footer__cols">
+          <div>
+            <p class="mono">Navigation</p>
+            <a href="#hero">Intro</a><a href="#work">Selected Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#people">References</a><a href="#contact">Contact</a>
+          </div>
+          <div>
+            <p class="mono">Documents & system</p>
+            <a href="assets/docs/CV.pdf" download>Download Official CV (.PDF) ↓</a>
+            <button type="button" id="replay-intro">Replay Intro Sequence ↺</button>
+            <a href="https://github.com/nukphannyvathana" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer__name" aria-hidden="true" data-split>NUKPHANNY VATHANA</p>
+      <div class="footer__bottom mono">
+        <span>© <span id="year">2026</span> Nukphanny Vathana. All rights reserved.</span>
+        <span>Web Developer · MIS at SETEC Institute · Phnom Penh, Cambodia</span>
+        <a href="#hero" class="to-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
