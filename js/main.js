@@ -127,12 +127,26 @@
   });
 
   /* ---------------------------------------------------------
-     Contact form → opens the visitor's email app
+     Contact form → sends via Web3Forms (https://web3forms.com)
+     The access key is designed to be public; it only allows
+     sending to the email address it was created for.
      --------------------------------------------------------- */
+  const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+  const CONTACT_EMAIL = 'nukphannyvathana@gmail.com';
   const form = $('#contact-form');
   const status = $('#form-status');
-  form.addEventListener('submit', (e) => {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitLabel = submitBtn.querySelector('span');
+  let sending = false;
+
+  const setStatus = (text, kind) => {
+    status.textContent = text;
+    status.className = `form__status mono ${kind ? `is-${kind}` : ''}`.trim();
+  };
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (sending) return;
     const f = form.elements;
     const name = f.namedItem('name').value.trim();
     const email = f.namedItem('email').value.trim();
@@ -146,15 +160,46 @@
       if (!valid) ok = false;
     });
     if (!ok) {
-      status.textContent = 'Please complete every field with a valid email address.';
-      status.className = 'form__status mono is-error';
+      setStatus('Please complete every field with a valid email address.', 'error');
       return;
     }
-    const subject = `${type} — ${name}`;
-    const body = `${msg}\n\n— ${name}\n${email}`;
-    window.location.href = `mailto:nukphannyvathana@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.textContent = 'Opening your email app… thank you for reaching out.';
-    status.className = 'form__status mono is-ok';
+
+    sending = true;
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Transmitting…';
+    setStatus('Sending your message…');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          access_key: '3b9d9e0f-2035-4c82-a6aa-7e37aec460d3',
+          subject: `Portfolio inquiry: ${type} — ${name}`,
+          from_name: 'Portfolio contact form',
+          replyto: email,
+          name,
+          email,
+          inquiry_type: type,
+          message: msg,
+          botcheck: f.namedItem('botcheck').checked,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.success) throw new Error(data.message || `HTTP ${res.status}`);
+
+      form.reset();
+      form.querySelectorAll('.field.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
+      setStatus('Message sent. Thank you, I will get back to you soon.', 'ok');
+    } catch (err) {
+      console.error('Contact form error:', err);
+      setStatus(`Message could not be sent. Please email me directly at ${CONTACT_EMAIL}.`, 'error');
+    } finally {
+      sending = false;
+      submitBtn.disabled = false;
+      submitLabel.textContent = 'Transmit Message';
+    }
   });
 
   /* ---------------------------------------------------------

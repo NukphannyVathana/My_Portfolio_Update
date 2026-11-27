@@ -345,7 +345,7 @@
                 <p>Focus on enterprise systems analysis, database design, software project methodologies, and technical management.</p>
               </li>
               <li class="timeline__item">
-                <span class="timeline__date mono">2025 — Present · Professional training</span>
+                <span class="timeline__date mono">2026 — Completed · Professional training</span>
                 <h4>Web Application Development</h4>
                 <p class="timeline__org">Aditi Academy</p>
                 <p>Comprehensive curriculum covering modern frontend engineering, responsive web design, DOM manipulation, and dynamic state.</p>
@@ -466,6 +466,8 @@
             <textarea id="f-msg" name="message" rows="5" placeholder=" " required></textarea>
             <label for="f-msg">Message brief</label>
           </div>
+          <!-- Honeypot: hidden from people, bots tick it and Web3Forms drops the submission -->
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <button type="submit" class="btn btn--primary btn--block magnetic"><span>Transmit Message</span><i>→</i></button>
           <p class="form__status mono" id="form-status" role="status" aria-live="polite"></p>
         </form>

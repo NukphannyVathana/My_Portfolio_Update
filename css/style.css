@@ -451,6 +451,7 @@ ul, ol { list-style: none; }
 }
 .field.is-invalid input, .field.is-invalid textarea { border-color: #ff6b6b; }
 .form .btn { margin-top: .8rem; }
+.form .btn:disabled { opacity: .6; cursor: progress; pointer-events: none; }
 .form__status { min-height: 1.2em; text-transform: none; letter-spacing: .02em; font-size: .8rem; }
 .form__status.is-error { color: #ff8a8a; }
 .form__status.is-ok { color: var(--accent); }
